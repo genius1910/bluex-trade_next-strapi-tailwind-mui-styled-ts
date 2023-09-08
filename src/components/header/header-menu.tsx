@@ -70,8 +70,8 @@ export function MainMenu({
                 ring-opacity-5 before:absolute before:left-10 before:top-[-0.313rem] before:h-0 before:w-0 before:border-x-[0.313rem] before:border-b-[0.313rem] before:border-solid before:border-x-transparent before:border-b-white before:content-[""]
                 focus:outline-none${groupClass}`}
             >
-              {groups.map((optionGroup, idx) => (
-                <div key={`${optionGroup.label}-${idx}`} className="py-1">
+              {groups.map((optionGroup, index) => (
+                <div key={`${optionGroup.label}-${index}`} className="py-1">
                   {optionGroup.label && (
                     <Menu.Item
                       as="span"
