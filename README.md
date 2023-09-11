@@ -14,7 +14,7 @@ To begin working with the BlueX project, ensure you have Node.js and npm install
 
 1. Clone this repository
    ```
-   git clone https://gitlab.com/bluexlab/bluex-web-next.git
+   https://github.com/newdev0816/bluex-trade_next-strapi-tailwind-mui-styled-ts.git
    ```
 
 2. Navigate to the project folder
