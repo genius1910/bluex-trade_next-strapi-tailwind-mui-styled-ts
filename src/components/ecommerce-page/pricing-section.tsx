@@ -9,6 +9,8 @@ import { Colors } from '@/constants/share/colors';
 
 import IconGreenChecked from '@/images/icon/icon-status-green-check.inline.svg';
 
+import { LocalizedContent } from '@/cms/ecommerce';
+
 const PricingFrame = styled.div`
   position: relative;
   width: 100%;
@@ -134,17 +136,15 @@ const TableComment = styled.div`
   }
 `;
 
-const PricingSection = () => {
+const PricingSection = ({ content }: { content: LocalizedContent }) => {
   return (
     <PricingFrame>
       <PricingWrapper>
-        <MainTitle marginBottom="3.875rem">
-          PRICING FOR THE BLUEX WHITE-LABEL E-COMMERCE SOLUTION
-        </MainTitle>
+        <MainTitle marginBottom="3.875rem">{content.Section_5_Title}</MainTitle>
         <TableWrapper>
           <PriceTableHead>
             <div></div>
-            {['Domestic', 'Regional', 'Global'].map((data, index) => (
+            {content.Section_5_Table_Headers.map(({ data }, index) => (
               <div key={`table-header-${index}`}>
                 <CustomTitle fontSize="1.5rem" color={Colors.SECONDARY}>
                   {data}
@@ -153,102 +153,13 @@ const PricingSection = () => {
             ))}
           </PriceTableHead>
           <PriceTableDatas>
-            {[
-              {
-                header: 'Features',
-                cells: [
-                  '10,001 - 25,000 TEU',
-                  '25,001-150,000 TEU',
-                  '150,001+ TEU',
-                ],
-              },
-              {
-                header: 'White-Label User Portal',
-                cells: [
-                  'yes',
-                  'yes',
-                  'yes',
-                ],
-              },
-              {
-                header: 'Admin Portal',
-                cells: [
-                  'yes',
-                  'yes',
-                  'yes',
-                ],
-              },
-              {
-                header: 'Reporting & Analytics',
-                cells: [
-                  'yes',
-                  'yes',
-                  'yes',
-                ],
-              },
-              {
-                header: 'Hosting',
-                cells: [
-                  'yes',
-                  'yes',
-                  'yes',
-                ],
-              },
-              {
-                header: 'Spot Rates',
-                cells: [
-                  'yes',
-                  'yes',
-                  'yes',
-                ],
-              },
-              {
-                header: 'Contract Rates',
-                cells: [
-                  'yes',
-                  'yes',
-                  'yes',
-                ],
-              },
-              {
-                header: 'Transshipment /  Feeder Schedules',
-                cells: [
-                  'no',
-                  'yes',
-                  'yes',
-                ],
-              },
-              {
-                header: 'Inland Schedules',
-                cells: [
-                  'no',
-                  'no',
-                  'yes',
-                ],
-              },
-              {
-                header: 'Dynamic Pricing',
-                cells: [
-                  'no',
-                  'no',
-                  'yes',
-                ],
-              },
-              {
-                header: 'Starts At Per Month',
-                cells: [
-                  '$10,000',
-                  '$25,000',
-                  '$50,000',
-                ],
-              },
-            ].map(({ header, cells }, index) => (
+            {content.Section_5_Table_Rows.map(({ header, cells }, index) => (
               <PriceTableDataRow key={`table-row-header-${index}`}>
                 <div>
                   {header}
                   {header === 'Dynamic Pricing' ? <span>&nbsp;*</span> : null}
                 </div>
-                {cells.map((data , index) => (
+                {cells.map(({ data }, index) => (
                   <div key={`table-row-${header}-${index}`}>
                     {data === 'yes' && <IconGreenChecked />}
                     {data !== 'yes' && data !== 'no' && <div>{data}</div>}
@@ -256,9 +167,7 @@ const PricingSection = () => {
                 ))}
               </PriceTableDataRow>
             ))}
-            <TableComment>
-              * Please contact us for more information
-            </TableComment>
+            <TableComment>{content.Section_5_Notification}</TableComment>
           </PriceTableDatas>
         </TableWrapper>
       </PricingWrapper>

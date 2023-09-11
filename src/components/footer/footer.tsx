@@ -614,10 +614,6 @@ const Footer = () => {
                 url: '/bluextrade-terms-of-service',
               },
               { label: 'Cookie Policy', url: '/bluextrade-terms-of-service' },
-              {
-                label: 'BlueX Trade Terms of Service',
-                url: '/bluextrade-terms-of-service',
-              },
             ].map(({ label, url }, index) => (
               <InfoBarLink key={`infobar-${index}`} display="inline-flex">
                 <a href={url}>{label}</a>

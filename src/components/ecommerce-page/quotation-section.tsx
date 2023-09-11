@@ -1,15 +1,17 @@
 'use client';
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import CustomTitle from "@/components/custom/custom-title";
-import Paragraph from "@/components/custom/paragraph";
-import { LayoutStyle, WindowSize } from "@/constants/style/layout";
-import { Colors } from "@/constants/share/colors";
+import CustomTitle from '@/components/custom/custom-title';
+import Paragraph from '@/components/custom/paragraph';
+import { LayoutStyle, WindowSize } from '@/constants/style/layout';
+import { Colors } from '@/constants/share/colors';
+
+import { LocalizedContent } from '@/cms/ecommerce';
 
 const QuotationFrame = styled.div`
   position: relative;
-  background-image: url(${props => props.$url});
+  background-image: url(${(props) => props.$url});
   width: 100%;
   height: fit-content;
   background-size: cover;
@@ -57,14 +59,22 @@ const ContentWrapper = styled.div`
   }
 `;
 
-const QuotationSection = ({ }) => {
+const QuotationSection = ({ content }: { content: LocalizedContent }) => {
   return (
-    <QuotationFrame $url={"https://www.bluextrade.com/static/23749308ab1069a2770880053285ef54/ecommerce_quotation_bg_d680688d3a.png"}>
+    <QuotationFrame
+      $url={
+        process.env.NEXT_PUBLIC_STRAPI_URL +
+        content.Section_4_Bg.data.attributes.url.substring(1)
+      }
+    >
       <QuotationWrapper>
         <ContentWrapper>
           <img
-            src={"https://www.bluextrade.com/static/41a203b5c61d5ad7ec6abb3e1ef8ca83/evergreen_logo_7fc8739e72.svg"}
-            alt={""}
+            src={
+              process.env.NEXT_PUBLIC_STRAPI_URL +
+              content.Section_4_Image.data.attributes.url.substring(1)
+            }
+            alt={content.Section_4_Content}
           />
           <div>
             <CustomTitle
@@ -75,10 +85,10 @@ const QuotationSection = ({ }) => {
               fontSize="1rem"
               fontWeight="normal"
             >
-              “Evergreen Marine joined the CarrierX Initiative and will launch with the platform because the solution has the potential to be the most effective monetization channel for all of our space, globally.”
+              {content.Section_4_Content}
             </CustomTitle>
             <Paragraph
-              title={"Eric Wang"}
+              title={content.Section_4_Speaker_Paragraph.title}
               titleColor={Colors.SECONDARY}
               alignItems="flex-start"
               titleFontSize="1.25rem"
@@ -86,7 +96,7 @@ const QuotationSection = ({ }) => {
               contentColor={Colors.GRAY8}
               gap="0.25rem"
             >
-              Head of Marketing and Sales, Evergreen Maritime Corporation
+              {content.Section_4_Speaker_Paragraph.content}
             </Paragraph>
           </div>
         </ContentWrapper>

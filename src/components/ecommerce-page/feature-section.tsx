@@ -2,6 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Box } from '@mui/material';
+import { LocalizedContent } from '@/cms/ecommerce';
 
 import CustomTitle, { MainTitle } from '@/components/custom/custom-title';
 import { LayoutStyle, WindowSize } from '@/constants/style/layout';
@@ -70,41 +71,28 @@ const FeatureItem = styled.div`
   }
 `;
 
-export default function FeatureSection() {
+export default function FeatureSection({
+  content,
+}: {
+  content: LocalizedContent;
+}) {
   return (
     <FeatureSectionFrame>
       <FeatureSectionWrapper>
-        <MainTitle>
-          {'POWERFUL E-COMMERCE TOOLS TO INCREASE REVENUES'}
-        </MainTitle>
+        <MainTitle>{content.Section_2_Title}</MainTitle>
         <FeatureListWrapper>
-          {[
-            {
-              image:
-                'https://www.bluextrade.com/static/d32cd45f33b7cf420ffa0dd4f052fd67/time_1_dd6a1d55a1.svg',
-              description: 'THE READY-TO-GO SOLUTION FOR OCEAN CARRIERS',
-            },
-            {
-              image:
-                'https://www.bluextrade.com/static/600b8a0d0a4e62a0f6c7573337785a24/boat_1_c945aba570.svg',
-              description: 'WORLD-CLASS DIGITAL SHIPPER EXPERIENCE',
-            },
-            {
-              image:
-                'https://www.bluextrade.com/static/5f1a754aea81f0067e0315916051b4ed/aggregate_c36ec54fa5.svg',
-              description: 'AI-DRIVEN DYNAMIC PRICING',
-            },
-            {
-              image:
-                'https://www.bluextrade.com/static/dd8968e208d6566a11ce8f344672aeb1/group_35e1f6d463.svg',
-              description: 'ENTERPRISE-CLASS INFORMATION SECURITY',
-            },
-          ].map(({ image, description }, index) => (
+          {content.Section_2_Media_List.map(({ image, description }, index) => (
             <FeatureItem key={`attribute-${index}`}>
               <Box height="5rem" mb="1.125rem">
                 {
                   // eslint-disable-next-line jsx-a11y/img-redundant-alt
-                  <img src={image} alt={""} />
+                  <img
+                    src={
+                      process.env.NEXT_PUBLIC_STRAPI_URL +
+                      image.data.attributes.url.substring(1)
+                    }
+                    alt={''}
+                  />
                 }
               </Box>
               <CustomTitle
@@ -115,7 +103,7 @@ export default function FeatureSection() {
                 fontWeight="500"
                 color={Colors.SECONDARY}
               >
-                {description}
+                {description.title}
               </CustomTitle>
             </FeatureItem>
           ))}
@@ -123,4 +111,4 @@ export default function FeatureSection() {
       </FeatureSectionWrapper>
     </FeatureSectionFrame>
   );
-};
+}

@@ -12,6 +12,8 @@ import { LayoutStyle, WindowSize } from '@/constants/style/layout';
 import IconLeftArrow from '@/images/icon/combined-shape.inline.svg';
 import IconRightArrow from '@/images/icon/combined-shape-copy.inline.svg';
 
+import { LocalizedContent } from '@/cms/ecommerce';
+
 const SlideSectionFrame = styled.div`
   position: relative;
   width: 100%;
@@ -193,7 +195,7 @@ const ItemTitle = styled(CustomTitle)`
   }
 `;
 
-const SlideSection = () => {
+const SlideSection = ({ content }: { content: LocalizedContent }) => {
   const [tabIndex, setTabIndex] = useState(0);
   const [tabLastIndex, setTabLastIndex] = useState(0);
 
@@ -202,7 +204,7 @@ const SlideSection = () => {
       return;
     }
 
-    const listLength = 3;
+    const listLength = content.Section_3_Tab_Media.length;
     if (newTabIndex >= listLength) {
       newTabIndex = 0;
     }
@@ -250,85 +252,64 @@ const SlideSection = () => {
         </SlideRightButton>
         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
           <TabsList>
-            {['SPOT MARKET', 'DYNAMIC PRICING', 'SOC 2 COMPLIANT SECURITY'].map(
-              (tag, index) => (
-                <TabsItem
-                  key={`tab-item-${index}`}
-                  className={tabIndex === index ? 'active' : null}
-                  onClick={() => {
-                    changeTabIndex(index);
-                  }}
+            {content.Section_3_Tab_Media.map(({ tag }, index) => (
+              <TabsItem
+                key={`tab-item-${index}`}
+                className={tabIndex === index ? 'active' : null}
+                onClick={() => {
+                  changeTabIndex(index);
+                }}
+              >
+                <CustomTitle
+                  fontFamily="Roboto-Medium, serif"
+                  fontSize="1.25rem"
+                  fontWeight="500"
                 >
-                  <CustomTitle
-                    fontFamily="Roboto-Medium, serif"
-                    fontSize="1.25rem"
-                    fontWeight="500"
-                  >
-                    {tag}
-                  </CustomTitle>
-                </TabsItem>
-              ),
-            )}
+                  {tag}
+                </CustomTitle>
+              </TabsItem>
+            ))}
           </TabsList>
         </Box>
-        {[
-          {
-            image:
-              'https://www.bluextrade.com/static/ba7824cf747bcff4cdcb09bef6bb19d9/group_4_731da52030.webp',
-            description:
-              'Optimize freight revenue with a spot market that capitalizes on the demand variabilities in the market',
-          },
-          {
-            image:
-              'https://www.bluextrade.com/static/3c63320589fae6b4ba9a42308a5c73c6/group_19_copy_5028420c95.webp',
-            description:
-              'AI-driven pricing that enable carrier sales to quickly price-optimize container space',
-            button: {
-              link: 'https://www.bluextrade.com/dynamic-pricing/',
-              text: 'Learn more',
-            },
-          },
-          {
-            image:
-              'https://www.bluextrade.com/static/bb8183cbf970ea7847fbd67695bbcf67/group_22_c0b5d9f46b.webp',
-            description:
-              'Architected with SOC II type 2 certified information security to protect your data from unwanted attacks',
-            button: {
-              link: 'https://www.bluextrade.com/security/',
-              text: 'Learn more',
-            },
-          },
-        ].map(({ image, description, button }, index) => (
-          <CustomSlide
-            key={`slide-item-${index}`}
-            className={index === 3 ? 'last' : null}
-            direction={setSlideDirection(index)}
-            in={tabIndex === index}
-            mountOnEnter
-            unmountOnExit
-          >
-            <Box>
-              <SlideContent>
-                <div>
-                  {
-                    // eslint-disable-next-line jsx-a11y/img-redundant-alt
-                    <img src={image} alt={''} />
-                  }
-                </div>
-                <div>
-                  <ItemTitle>{description}</ItemTitle>
-                  {button && (
-                    <div>
-                      <a href={button.link} target="_blank">
-                        <CustomButton>{button.text}</CustomButton>
-                      </a>
-                    </div>
-                  )}
-                </div>
-              </SlideContent>
-            </Box>
-          </CustomSlide>
-        ))}
+        {content.Section_3_Tab_Media.map(
+          ({ image, description, button }, index) => (
+            <CustomSlide
+              key={`slide-item-${index}`}
+              className={index === 3 ? 'last' : null}
+              direction={setSlideDirection(index)}
+              in={tabIndex === index}
+              mountOnEnter
+              unmountOnExit
+            >
+              <Box>
+                <SlideContent>
+                  <div>
+                    {
+                      // eslint-disable-next-line jsx-a11y/img-redundant-alt
+                      <img
+                        src={
+                          process.env.NEXT_PUBLIC_STRAPI_URL +
+                          image.data.attributes.url.substring(1)
+                        }
+                        alt={''}
+                      />
+                    }
+                  </div>
+                  <div>
+                    <ItemTitle>{description.content}</ItemTitle>
+                    {button && (
+                      <div>
+                        <a href={button.link} target="_blank">
+                          <CustomButton>{button.text}</CustomButton>
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                </SlideContent>
+              </Box>
+            </CustomSlide>
+          ),
+        )}
       </SlideSectionWrapper>
     </SlideSectionFrame>
   );
