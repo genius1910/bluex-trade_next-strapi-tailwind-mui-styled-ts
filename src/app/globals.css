@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Roboto-Medium";
+  src: local("Roboto-Medium"), url('../static/fonts/Roboto-Medium.ttf') format('opentype');
+}
+
 :root {
   --header-text: #fff;
 }
