@@ -24,8 +24,7 @@ export default async function Page() {
             locale={locale}
           />
         </main>
-        <Footer
-          locale={locale}></Footer>
+        <Footer locale={locale} />
       </body>
     </html>
   )

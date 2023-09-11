@@ -1,13 +1,11 @@
 'use client';
-import { LocalizedContent } from '@/cms/home';
-import parse from 'html-react-parser';
+import { LocalizedContent } from '@/cms/ecommerce';
 import styled from 'styled-components';
 import Paragraph, { MainParagraphStyle } from '@/components/custom/paragraph';
 import CustomButton from '@/components/custom/custom-button';
 import { LayoutStyle, WindowSize } from '@/constants/style/layout';
 
-// import BackgroundVideo from "../../images/front-main/BlueX Page animated background.mp4";
-
+// --- Styled-component --- //
 const MainSectionFrame = styled.div`
   position: relative;
   background-image: url(${(props) => props.$url});
@@ -107,37 +105,41 @@ const MainParagraph = styled(Paragraph)`
   }
 `;
 
-export default function FrontMainSection() {
+export default function FrontMainSection({
+  content,
+}: {
+  content: LocalizedContent;
+}) {
   return (
     <MainSectionFrame
       $url={
-        '	https://www.bluextrade.com/static/8f861c683a7c928fa4e2259e2c86cb85/Group_110_e5169c852e.png'
+        process.env.NEXT_PUBLIC_STRAPI_URL +
+        content.Section_1_Bg.data.attributes.url.substring(1)
       }
     >
-      <MainSectionWrapper>
-        <MainMediaFrame>
-        <MainMediaDescription>
-          <MainParagraph title={'eCommerce Solution with Dynamic Pricing'}>
-            {
-              'Join other ocean carriers like Evergreen Line to digitally manage rates, space, and schedules.'
-            }
-          </MainParagraph>
-          <CustomButton
-            onClick={() => {
-              window.location = 'mailto:sales@bluextrade.com';
-            }}
-          >
-            Get Started
-          </CustomButton>
-        </MainMediaDescription>
-        <div>
-          <img
-            src={
-              'https://www.bluextrade.com/static/a584837aa075d665c8900af21df030ff/Free_Screen_Mockup_PSD_Template_1_a9100d7957.png'
-            }
-            alt={''}
-          />
-        </div>
+      <MainSectionWrapper className="flex h-[36.25rem] items-center justify-center">
+        <MainMediaFrame className="flex w-full flex-row items-center justify-center">
+          <MainMediaDescription>
+            <MainParagraph title={content.Section_1_Title}>
+              {content.Section_1_Content}
+            </MainParagraph>
+            <CustomButton
+              onClick={() => {
+                window.location = 'mailto:sales@bluextrade.com';
+              }}
+            >
+              {content.Section_1_Button}
+            </CustomButton>
+          </MainMediaDescription>
+          <div>
+            <img
+              src={
+                process.env.NEXT_PUBLIC_STRAPI_URL +
+                content.Section_1_Image.data.attributes.url.substring(1)
+              }
+              alt={content.Section_1_Image.data.attributes.alternativeText}
+            />
+          </div>
         </MainMediaFrame>
       </MainSectionWrapper>
     </MainSectionFrame>
