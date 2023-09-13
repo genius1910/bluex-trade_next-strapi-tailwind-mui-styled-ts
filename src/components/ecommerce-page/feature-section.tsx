@@ -1,89 +1,20 @@
-'use client';
 import React from 'react';
-import styled from 'styled-components';
-import { Box } from '@mui/material';
 import { LocalizedContent } from '@/cms/ecommerce';
 
-import CustomTitle, { MainTitle } from '@/components/custom/custom-title';
-import { LayoutStyle, WindowSize } from '@/constants/style/layout';
-import { DefaultFont } from '@/constants/style/default-font';
-import { Colors } from '@/constants/share/colors';
-
-const FeatureSectionFrame = styled.div`
-  position: relative;
-  width: 100%;
-  height: fit-content;
-  background-color: ${Colors.WHITE};
-`;
-
-const FeatureSectionWrapper = styled.div`
-  ${LayoutStyle}
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 70rem;
-  box-sizing: border-box;
-  padding-top: 4.375rem;
-  padding-bottom: 5rem;
-
-  > div:first-child {
-    width: 30rem;
-    margin-bottom: 4rem;
-  }
-  @media (max-width: ${WindowSize.mobileL}) {
-    > div:first-child {
-      width: 100%;
-      margin-bottom: 4rem;
-    }
-  }
-`;
-
-const FeatureListWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-
-  @media (max-width: ${WindowSize.mobileL}) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
-const FeatureItem = styled.div`
-  flex: 0 1 14.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  ${DefaultFont}
-  text-transform: uppercase;
-
-  & + div {
-    margin-right: 2rem;
-  }
-  @media (max-width: ${WindowSize.mobileL}) {
-    flex: 1 1 auto;
-
-    & + div {
-      margin-right: 0rem;
-      margin-top: 2rem;
-    }
-  }
-`;
-
-export default function FeatureSection({
-  content,
-}: {
-  content: LocalizedContent;
-}) {
+const FeatureSection = ({ content }: { content: LocalizedContent }) => {
   return (
-    <FeatureSectionFrame>
-      <FeatureSectionWrapper>
-        <MainTitle>{content.Section_2_Title}</MainTitle>
-        <FeatureListWrapper>
+    <div className="relative h-fit w-full bg-white">
+      <div className="mx-auto my-0 box-border flex w-full flex-col items-center px-5 pb-[5rem] pt-[4.375rem] lg:w-[60rem]">
+        <div className=" mb-16 w-full whitespace-pre-wrap text-center font-[Roboto-Medium] text-[1.75rem] font-black uppercase leading-[2.875rem] tracking-normal text-[#009bd2] md:w-[30rem]">
+          {content.Section_2_Title}
+        </div>
+        <div className="flex w-full flex-col justify-center gap-8 md:flex-row">
           {content.Section_2_Media_List.map(({ image, description }, index) => (
-            <FeatureItem key={`attribute-${index}`}>
-              <Box height="5rem" mb="1.125rem">
+            <div
+              className="flex flex-1 flex-col items-center font-[lato] text-base font-normal leading-normal tracking-normal"
+              key={`attribute-${index}`}
+            >
+              <div className='h-20 mb-[1.125rem]'>
                 {
                   // eslint-disable-next-line jsx-a11y/img-redundant-alt
                   <img
@@ -94,21 +25,16 @@ export default function FeatureSection({
                     alt={''}
                   />
                 }
-              </Box>
-              <CustomTitle
-                lineHeight="1.563rem"
-                whiteSpace="wrap"
-                fontFamily="Roboto-Medium, serif"
-                fontSize="1rem"
-                fontWeight="500"
-                color={Colors.SECONDARY}
-              >
+              </div>
+              <div className="mb-0 whitespace-pre-wrap text-center font-[Roboto-Medium] text-base font-medium uppercase leading-[1.563rem] tracking-normal text-[#009bd2]">
                 {description.title}
-              </CustomTitle>
-            </FeatureItem>
+              </div>
+            </div>
           ))}
-        </FeatureListWrapper>
-      </FeatureSectionWrapper>
-    </FeatureSectionFrame>
+        </div>
+      </div>
+    </div>
   );
-}
+};
+
+export default FeatureSection;

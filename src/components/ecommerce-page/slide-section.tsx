@@ -1,199 +1,12 @@
 'use client';
+
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Link } from 'next/link';
-import { Box, Button, Slide } from '@mui/material';
-
-import CustomTitle from '@/components/custom/custom-title';
-import CustomButton from '@/components/custom/custom-button';
-import { Colors } from '@/constants/share/colors';
-import { LayoutStyle, WindowSize } from '@/constants/style/layout';
-
+import { Slide } from '@mui/material';
+import Button from "@/components/common/ripple-button";
 import IconLeftArrow from '@/images/icon/combined-shape.inline.svg';
 import IconRightArrow from '@/images/icon/combined-shape-copy.inline.svg';
 
 import { LocalizedContent } from '@/cms/ecommerce';
-
-const SlideSectionFrame = styled.div`
-  position: relative;
-  width: 100%;
-  height: fit-content;
-  background-color: ${Colors.BLUE_LIGHT};
-  overflow: hidden;
-`;
-
-const SlideSectionWrapper = styled.div`
-  ${LayoutStyle}
-  width: 65rem;
-  height: 30rem;
-  box-sizing: border-box;
-  padding-top: 4rem;
-  padding-bottom: 3.625rem;
-
-  @media (max-width: ${WindowSize.tablet}) {
-    height: 47.5rem;
-  }
-  @media (max-width: ${WindowSize.mobileL}) {
-    width: 100%;
-    height: 37.5rem;
-    padding-top: 3.125rem;
-    padding-bottom: 3.125rem;
-  }
-`;
-
-const SlideButton = styled(Button)`
-  &.MuiButton-root {
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
-
-    @media (max-width: ${WindowSize.tablet}) {
-      opacity: 0.5;
-    }
-  }
-`;
-
-const SlideLeftButton = styled(SlideButton)`
-  left: 0rem;
-`;
-
-const SlideRightButton = styled(SlideButton)`
-  right: 0rem;
-`;
-
-const TabsList = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-`;
-
-const TabsItem = styled.div`
-  position: relative;
-  cursor: pointer;
-  text-transform: uppercase;
-
-  &::after {
-    content: '';
-    position: absolute;
-    width: 0rem;
-    height: 0.125rem;
-    left: 50%;
-    bottom: -1.625rem;
-    transform: translate(-50%, 0);
-    background-color: ${Colors.SECONDARY};
-    transition: 0.1s;
-  }
-  &.active::after {
-    width: 5rem;
-  }
-`;
-
-const CustomSlide = styled(Slide)`
-  > div {
-    height: 20rem;
-    padding-top: 4.563rem;
-    box-sizing: border-box;
-  }
-  &.last > div > div:first-child {
-    text-align: center;
-
-    img {
-      width: 23.438rem;
-    }
-  }
-  @media (max-width: ${WindowSize.tablet}) {
-    > div {
-      height: fit-content;
-      padding-top: 2rem;
-
-      img {
-        width: 100%;
-        margin-top: 2.5rem;
-      }
-    }
-  }
-`;
-
-const SlideContent = styled.div`
-  display: flex;
-  height: fit-content;
-
-  > div {
-    &:first-child {
-      flex: 0 0 25rem;
-      display: flex;
-      align-items: center;
-      min-height: 15rem;
-
-      img {
-        width: 100%;
-      }
-    }
-    &:last-child {
-      flex: 1 1 25rem;
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      align-items: center;
-      margin-left: 2.813rem;
-
-      a {
-        display: block;
-        width: 11rem;
-        height: 2.875rem;
-
-        button {
-          width: 100%;
-          height: 100%;
-        }
-      }
-    }
-  }
-  @media (max-width: ${WindowSize.laptopS}) {
-    > div {
-      &:first-child {
-        flex: 0 0 20rem;
-      }
-    }
-  }
-  @media (max-width: ${WindowSize.mobileL}) {
-    flex-direction: column-reverse;
-
-    > div {
-      &:first-child {
-        flex: 1 1 auto;
-      }
-      &:last-child {
-        flex: 1 1 auto;
-        justify-content: center;
-        margin-left: 0rem;
-        margin-bottom: 1.25rem;
-
-        > div {
-          text-align: center;
-        }
-      }
-    }
-  }
-`;
-
-const ItemTitle = styled(CustomTitle)`
-  width: 100%;
-  line-height: 2.625rem;
-  color: ${Colors.SECONDARY};
-  font-family: Roboto-Medium, serif;
-  font-size: 1.75rem;
-  font-weight: bold;
-  text-align: left;
-  white-space: pre-wrap;
-
-  @media (max-width: ${WindowSize.tablet}) {
-    flex: 1 1 auto;
-    margin-right: 0rem;
-    margin-bottom: 1.25rem;
-  }
-`;
 
 const SlideSection = ({ content }: { content: LocalizedContent }) => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -242,51 +55,58 @@ const SlideSection = ({ content }: { content: LocalizedContent }) => {
   };
 
   return (
-    <SlideSectionFrame>
-      <SlideSectionWrapper>
-        <SlideLeftButton onClick={() => changeTabIndex(tabIndex - 1)}>
+    <div className="relative h-fit w-full overflow-hidden bg-[#ebfaff]">
+      <div className="mx-auto my-0 box-border h-[37.5rem] w-full px-5 py-[3.125rem] md:h-[30rem] md:pb-[3.625rem] md:pt-16 lg:w-[70rem]">
+        <Button
+          className="!absolute left-0 top-1/2 translate-y-[-50%] opacity-50 md:opacity-100"
+          onClick={() => changeTabIndex(tabIndex - 1)}
+        >
           <IconLeftArrow />
-        </SlideLeftButton>
-        <SlideRightButton onClick={() => changeTabIndex(tabIndex + 1)}>
+        </Button>
+        <Button
+          className="!absolute right-0 top-1/2 translate-y-[-50%] opacity-50 md:opacity-100"
+          onClick={() => changeTabIndex(tabIndex + 1)}
+        >
           <IconRightArrow />
-        </SlideRightButton>
-        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-          <TabsList>
+        </Button>
+        <div className='md:block hidden'>
+          <div className="flex flex-row flex-nowrap justify-around">
             {content.Section_3_Tab_Media.map(({ tag }, index) => (
-              <TabsItem
+              <div
                 key={`tab-item-${index}`}
-                className={tabIndex === index ? 'active' : null}
+                className={`${
+                  tabIndex === index ? 'ecommerceSlideActive' : null
+                } relative cursor-pointer uppercase transition duration-100 after:absolute after:bottom-[-1.625rem] after:left-1/2 after:h-[0.125rem] after:w-0 after:translate-x-[-50%] after:bg-[#009bd2] `}
                 onClick={() => {
                   changeTabIndex(index);
                 }}
               >
-                <CustomTitle
-                  fontFamily="Roboto-Medium, serif"
-                  fontSize="1.25rem"
-                  fontWeight="500"
-                >
+                <div className="mb-0 whitespace-pre-wrap text-center font-[Roboto-Medium] text-[1.25rem] font-medium uppercase leading-normal tracking-normal text-[#18335e]">
                   {tag}
-                </CustomTitle>
-              </TabsItem>
+                </div>
+              </div>
             ))}
-          </TabsList>
-        </Box>
+          </div>
+        </div>
         {content.Section_3_Tab_Media.map(
           ({ image, description, button }, index) => (
-            <CustomSlide
+            <Slide
               key={`slide-item-${index}`}
-              className={index === 3 ? 'last' : null}
+              className={`${
+                index === 3 ? 'last' : null
+              } box-border h-[20rem] pt-[4.563rem]`}
               direction={setSlideDirection(index)}
               in={tabIndex === index}
               mountOnEnter
               unmountOnExit
             >
-              <Box>
-                <SlideContent>
-                  <div>
+              <div>
+                <div className="flex h-fit flex-col-reverse md:flex-row">
+                  <div className="flex min-h-[15rem] w-full flex-none flex-shrink-0 items-center md:w-[25rem]">
                     {
                       // eslint-disable-next-line jsx-a11y/img-redundant-alt
                       <img
+                        className="w-full"
                         src={
                           process.env.NEXT_PUBLIC_STRAPI_URL +
                           image.data.attributes.url.substring(1)
@@ -295,23 +115,31 @@ const SlideSection = ({ content }: { content: LocalizedContent }) => {
                       />
                     }
                   </div>
-                  <div>
-                    <ItemTitle>{description.content}</ItemTitle>
+                  <div className="mb-5 ml-0 flex flex-1 flex-row flex-wrap items-center justify-center md:ml-[2.813rem] md:justify-start">
+                    <div className="mb-5 ml-0 mr-0 w-full justify-center whitespace-pre-wrap text-center font-[Roboto-Medium] text-[1.725rem] font-bold leading-[2.625rem] text-[#009bd2] md:text-left md:m-0">
+                      {description.content}
+                    </div>
                     {button && (
                       <div>
-                        <a href={button.link} target="_blank">
-                          <CustomButton>{button.text}</CustomButton>
+                        <a
+                          className="block h-[2.875rem] w-[11rem]"
+                          href={button.link}
+                          target="_blank"
+                        >
+                          <button className="h-full w-full rounded-[18px] border-none bg-[#009bd2] px-2 py-1.5 text-center text-base font-bold normal-case leading-6 text-white hover:bg-[#00afec]">
+                            {button.text}
+                          </button>
                         </a>
                       </div>
                     )}
                   </div>
-                </SlideContent>
-              </Box>
-            </CustomSlide>
+                </div>
+              </div>
+            </Slide>
           ),
         )}
-      </SlideSectionWrapper>
-    </SlideSectionFrame>
+      </div>
+    </div>
   );
 };
 
