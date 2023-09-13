@@ -38,6 +38,10 @@ a {
   content: "•" !important;
 }
 
+.ecommerceSlideActive::after {
+  width: 5rem !important;
+}
+
 @layer components {
   .skeleton {
     display: block;

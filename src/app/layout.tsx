@@ -1,10 +1,7 @@
 import "@fontsource/inter";
 import "@fontsource/lato";
 import type { Metadata } from 'next';
-import './globals.css';
-import "@fontsource/roboto"; // Defaults to weight 400
-import "@fontsource/roboto/400.css"; // Specify weight
-import "@fontsource/roboto/400-italic.css"; // Specify weight and style
+import './globals.css'; // Specify weight and style
 
 export const metadata: Metadata = {
   title: 'BlueX Trade',
