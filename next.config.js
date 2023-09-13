@@ -13,6 +13,9 @@ const nextConfig = {
   //   ],
   },
   trailingSlash: true,
+  experimental: {
+    reactServerComponents: true,  // Enable React Server Components
+  },
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.('.svg'),
