@@ -1,11 +1,6 @@
 import { loadSingleTypes } from '@/lib/strapi_adapter';
 import { baseConfig } from './base';
-import {
-  AvailableLocaleType,
-  ImageEntry,
-  availableLocales,
-} from './types';
-
+import { AvailableLocaleType, ImageEntry, availableLocales } from './types';
 
 const query = {
   populate: `SEO,
@@ -40,6 +35,35 @@ type PageContent = {
 };
 
 interface LocalizedContent {
+  SEO: SEO;
+  Section_1_Bg: ImageEntry;
+  Section_1_Button: string;
+  Section_1_Content: string;
+  Section_1_Image: ImageEntry;
+  Section_1_Media_List: MediaList;
+  Section_1_Title: string;
+  Section_2_Media_List: MediaList[];
+  Section_2_Title: string;
+  Section_3_Tab_Media: TabList[];
+  Section_4_Bg: ImageEntry;
+  Section_4_Content: string;
+  Section_4_Image: ImageEntry;
+  Section_4_Speaker_Paragraph: Paragraph;
+  Section_5_Notification: string;
+  Section_5_Table_Headers: StringList[];
+  Section_5_Table_Rows: TableCell[];
+  Section_5_Title: string;
+}
+
+export interface SEO {
+  id: number;
+  title: string;
+  description: string;
+  image: Image;
+}
+
+export interface Image {
+  data: ImageData[] | ImageData | null;
 }
 
 export interface MediaList {
@@ -54,6 +78,25 @@ export interface TypeList {
   link: string;
 }
 
+export interface StringList {
+  id: number;
+  data: string;
+}
+
+export interface TableCell {
+  id: number;
+  header: string;
+  cells: StringList[];
+}
+
+export interface TabList {
+  id: number;
+  tag: string;
+  image: ImageEntry;
+  description: Paragraph;
+  button: { link: string; text: string };
+}
+
 export interface Paragraph {
   id: number;
   title: string;
@@ -63,7 +106,6 @@ export interface Paragraph {
 export type { LocalizedContent, PageContent };
 
 export const fetchContent = async () => {
-
   const res = await loadSingleTypes({
     ...baseConfig(),
     singularName: 'Ecommerce-content',

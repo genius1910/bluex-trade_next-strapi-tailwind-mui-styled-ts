@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { Fragment } from "react";
-import Link from "next/link";
-import { Menu, Transition } from "@headlessui/react";
-import ChevronDownIcon from "@/images/icon/chevron-down.svg";
-import { formatClassSpacePrefix } from "@/lib/format";
+import { Fragment } from 'react';
+import Link from 'next/link';
+import { Menu, Transition } from '@headlessui/react';
+import ChevronDownIcon from '@/images/icon/chevron-down.svg';
+import { formatClassSpacePrefix } from '@/lib/format';
 
 interface OptionGroupType {
   label?: string;
@@ -43,12 +43,13 @@ export function MainMenu({
         <>
           <div key="d1">
             <Menu.Button
+              id=""
               className={`inline-flex w-full items-center justify-center border-none bg-transparent px-2.5 py-2 font-menu text-sm font-medium leading-[1.57rem] text-header${buttonClass}`}
             >
               {title}
               <ChevronDownIcon
                 className={`-mr-1 h-6 w-6 transform text-current duration-150 ${
-                  open ? "rotate-180" : "rotate-0"
+                  open ? 'rotate-180' : 'rotate-0'
                 }`}
                 aria-hidden="true"
               />
@@ -86,7 +87,7 @@ export function MainMenu({
                       <Menu.Item as={Fragment} key={option.label}>
                         <Link
                           href={option.url}
-                          className={`block flex flex-row items-center px-4 py-2 text-xs hover:bg-gray-200 text-submenu${optClass}`}
+                          className={`flex flex-row items-center px-4 py-2 text-xs hover:bg-gray-200 text-submenu${optClass}`}
                         >
                           {option.icon}
                           {option.label}
