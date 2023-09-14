@@ -7,12 +7,13 @@ import IconLeftArrow from '@/images/icon/combined-shape.inline.svg';
 import IconRightArrow from '@/images/icon/combined-shape-copy.inline.svg';
 
 import { LocalizedContent } from '@/cms/ecommerce';
+import Image from 'next/image';
 
 const SlideSection = ({ content }: { content: LocalizedContent }) => {
   const [tabIndex, setTabIndex] = useState(0);
   const [tabLastIndex, setTabLastIndex] = useState(0);
 
-  const changeTabIndex = (newTabIndex) => {
+  const changeTabIndex = (newTabIndex : number) => {
     if (newTabIndex === tabIndex) {
       return;
     }
@@ -30,7 +31,7 @@ const SlideSection = ({ content }: { content: LocalizedContent }) => {
     setTabIndex(newTabIndex);
   };
 
-  const setSlideDirection = (index) => {
+  const setSlideDirection = (index : number) => {
     if (tabLastIndex === tabIndex) {
       return 'right';
     }
@@ -105,13 +106,15 @@ const SlideSection = ({ content }: { content: LocalizedContent }) => {
                   <div className="flex min-h-[15rem] w-full flex-none flex-shrink-0 items-center md:w-[25rem]">
                     {
                       // eslint-disable-next-line jsx-a11y/img-redundant-alt
-                      <img
+                      <Image
                         className="w-full"
                         src={
                           process.env.NEXT_PUBLIC_STRAPI_URL +
                           image.data.attributes.url.substring(1)
                         }
                         alt={''}
+                        width={image.data.attributes.width}
+                        height={image.data.attributes.height}
                       />
                     }
                   </div>
