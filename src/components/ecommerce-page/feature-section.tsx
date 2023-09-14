@@ -1,5 +1,6 @@
 import React from 'react';
 import { LocalizedContent } from '@/cms/ecommerce';
+import Image from 'next/image';
 
 const FeatureSection = ({ content }: { content: LocalizedContent }) => {
   return (
@@ -17,12 +18,14 @@ const FeatureSection = ({ content }: { content: LocalizedContent }) => {
               <div className='h-20 mb-[1.125rem]'>
                 {
                   // eslint-disable-next-line jsx-a11y/img-redundant-alt
-                  <img
+                  <Image
                     src={
                       process.env.NEXT_PUBLIC_STRAPI_URL +
                       image.data.attributes.url.substring(1)
                     }
                     alt={''}
+                    width={image.data.attributes.width}
+                    height={image.data.attributes.height}
                   />
                 }
               </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { LocalizedContent } from '@/cms/ecommerce';
+import Image from 'next/image';
 
 const QuotationSection = ({ content }: { content: LocalizedContent }) => {
   return (
@@ -15,13 +16,15 @@ const QuotationSection = ({ content }: { content: LocalizedContent }) => {
     >
       <div className="mx-auto my-0 box-border flex w-full justify-center overflow-hidden px-5 pb-[3.563rem] pt-[3.625rem] lg:w-[70rem] lg:px-0">
         <div className="flex w-full flex-col justify-center bg-[rgba(256,256,256,0.1)] p-[1.875rem] lg:w-[70rem] lg:flex-row lg:px-[5rem] lg:pb-[1.875rem] lg:pt-[3.25rem]">
-          <img
+          <Image
             className="mb-5 mr-0 w-full lg:mb-0 lg:mr-[3rem] lg:w-[26rem]"
             src={
               process.env.NEXT_PUBLIC_STRAPI_URL +
               content.Section_4_Image.data.attributes.url.substring(1)
             }
             alt={content.Section_4_Content}
+            width={content.Section_4_Image.data.attributes.width}
+            height={content.Section_4_Image.data.attributes.height}
           />
           <div>
             <div className="font-lato font-stretch-normal overflow-wrap-normal mb-5 whitespace-normal text-left text-base font-normal normal-case leading-normal tracking-normal text-white">

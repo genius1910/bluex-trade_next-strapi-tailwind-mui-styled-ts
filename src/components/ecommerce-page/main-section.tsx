@@ -1,6 +1,5 @@
-'use client'
-
 import { LocalizedContent } from '@/cms/ecommerce';
+import Image from 'next/image';
 
 const FrontMainSection = ({ content }: { content: LocalizedContent }) => {
   return (
@@ -24,22 +23,27 @@ const FrontMainSection = ({ content }: { content: LocalizedContent }) => {
                 {content.Section_1_Content}
               </div>
             </div>
-            <button
-              className="w-36 rounded-[18px] border-none bg-[#009bd2] px-2 py-1.5 text-center text-sm font-bold normal-case leading-6 text-white hover:bg-[#00afec]"
-              onClick={() => {
-                window.location = 'mailto:sales@bluextrade.com';
-              }}
+            <a
+              href="mailto:sales@bluextrade.com"
+              target="_blank"
+              className="inline-block w-36 rounded-[18px] border-none bg-[#009bd2] px-2 py-1.5 text-center text-sm font-bold normal-case leading-6 text-white hover:bg-[#00afec]"
             >
               {content.Section_1_Button}
-            </button>
+            </a>
           </div>
           <div>
-            <img
+            <Image
               src={
                 process.env.NEXT_PUBLIC_STRAPI_URL +
                 content.Section_1_Image.data.attributes.url.substring(1)
               }
-              alt={content.Section_1_Image.data.attributes.alternativeText}
+              alt={
+                content.Section_1_Image.data.attributes.alternativeText
+                  ? content.Section_1_Image.data.attributes.alternativeText
+                  : ''
+              }
+              width={content.Section_1_Image.data.attributes.width}
+              height={content.Section_1_Image.data.attributes.height}
             />
           </div>
         </div>
