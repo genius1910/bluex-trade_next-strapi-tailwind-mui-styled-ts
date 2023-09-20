@@ -1,19 +1,19 @@
 'use client';
-
-import React, { useState } from 'react';
 import { Slide } from '@mui/material';
-import Button from "@/components/common/ripple-button";
-import IconLeftArrow from '@/images/icon/combined-shape.inline.svg';
-import IconRightArrow from '@/images/icon/combined-shape-copy.inline.svg';
-
-import { LocalizedContent } from '@/cms/ecommerce';
 import Image from 'next/image';
+import { useState } from 'react';
+
+import { buildCmsUrl } from '@/cms/base';
+import { LocalizedContent } from '@/cms/ecommerce';
+import Button from "@/components/common/ripple-button";
+import IconRightArrow from '@/images/icon/combined-shape-copy.inline.svg';
+import IconLeftArrow from '@/images/icon/combined-shape.inline.svg';
 
 const SlideSection = ({ content }: { content: LocalizedContent }) => {
   const [tabIndex, setTabIndex] = useState(0);
   const [tabLastIndex, setTabLastIndex] = useState(0);
 
-  const changeTabIndex = (newTabIndex : number) => {
+  const changeTabIndex = (newTabIndex: number) => {
     if (newTabIndex === tabIndex) {
       return;
     }
@@ -31,7 +31,7 @@ const SlideSection = ({ content }: { content: LocalizedContent }) => {
     setTabIndex(newTabIndex);
   };
 
-  const setSlideDirection = (index : number) => {
+  const setSlideDirection = (index: number) => {
     if (tabLastIndex === tabIndex) {
       return 'right';
     }
@@ -70,7 +70,7 @@ const SlideSection = ({ content }: { content: LocalizedContent }) => {
         >
           <IconRightArrow />
         </Button>
-        <div className='md:block hidden'>
+        <div className="hidden md:block">
           <div className="flex flex-row flex-nowrap justify-around">
             {content.Section_3_Tab_Media.map(({ tag }, index) => (
               <div
@@ -105,21 +105,17 @@ const SlideSection = ({ content }: { content: LocalizedContent }) => {
                 <div className="flex h-fit flex-col-reverse md:flex-row">
                   <div className="flex min-h-[15rem] w-full flex-none flex-shrink-0 items-center md:w-[25rem]">
                     {
-                      // eslint-disable-next-line jsx-a11y/img-redundant-alt
                       <Image
                         className="w-full"
-                        src={
-                          process.env.NEXT_PUBLIC_STRAPI_URL +
-                          image.data.attributes.url.substring(1)
-                        }
+                        src={buildCmsUrl(image.data?.attributes.url)}
                         alt={''}
-                        width={image.data.attributes.width}
-                        height={image.data.attributes.height}
+                        width={400}
+                        height={image.data?.attributes.height}
                       />
                     }
                   </div>
                   <div className="mb-5 ml-0 flex flex-1 flex-row flex-wrap items-center justify-center md:ml-[2.813rem] md:justify-start">
-                    <div className="mb-5 ml-0 mr-0 w-full justify-center whitespace-pre-wrap text-center font-[Roboto-Medium] text-[1.725rem] font-bold leading-[2.625rem] text-[#009bd2] md:text-left md:m-0">
+                    <div className="mb-5 ml-0 mr-0 w-full justify-center whitespace-pre-wrap text-center font-[Roboto-Medium] text-[1.725rem] font-bold leading-[2.625rem] text-[#009bd2] md:m-0 md:text-left">
                       {description.content}
                     </div>
                     {button && (

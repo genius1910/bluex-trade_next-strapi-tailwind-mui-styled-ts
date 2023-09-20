@@ -1,20 +1,17 @@
+import { buildCmsUrl } from '@/cms/base';
 import { LocalizedContent } from '@/cms/ecommerce';
+import { backgroundImageSetStyle } from '@/components/tools/background-imageset';
 import Image from 'next/image';
 
 const FrontMainSection = ({ content }: { content: LocalizedContent }) => {
   return (
     <div
       className="relative overflow-x-hidden bg-cover bg-center"
-      style={{
-        backgroundImage: `url(${
-          process.env.NEXT_PUBLIC_STRAPI_URL +
-          content.Section_1_Bg.data.attributes.url.substring(1)
-        })`,
-      }}
+      style={backgroundImageSetStyle(content.Section_1_Bg.data?.attributes.url)}
     >
-      <div className="mx-auto my-0 box-border flex h-auto w-full items-center justify-center px-5 pt-44 md:h-[36.25rem] md:py-0 lg:w-[60rem]">
-        <div className="mt-0 flex w-full flex-col items-center justify-center md:mt-8 md:flex-row">
-          <div className="mb-[1.875rem] mr-0 flex max-w-[40rem] flex-col items-center md:items-start">
+      <div className="mx-auto my-0 box-border flex h-auto w-full items-center justify-center px-5 pt-44 md:h-[36.25rem] md:py-0 md:pt-0 lg:w-[60.9375rem] lg:px-0">
+        <div className="mt-0 flex w-full flex-col items-center justify-center md:flex-row">
+          <div className="mb-[1.875rem] mr-0 flex max-w-[25.3125rem] flex-col items-center md:items-start">
             <div className="mb-[1.875rem] w-full items-start">
               <div className="mb-[1.875rem] max-w-[30rem] break-keep text-left text-[2.25rem] font-bold leading-[3.375rem] tracking-normal text-white">
                 {content.Section_1_Title}
@@ -33,17 +30,10 @@ const FrontMainSection = ({ content }: { content: LocalizedContent }) => {
           </div>
           <div>
             <Image
-              src={
-                process.env.NEXT_PUBLIC_STRAPI_URL +
-                content.Section_1_Image.data.attributes.url.substring(1)
-              }
-              alt={
-                content.Section_1_Image.data.attributes.alternativeText
-                  ? content.Section_1_Image.data.attributes.alternativeText
-                  : ''
-              }
-              width={content.Section_1_Image.data.attributes.width}
-              height={content.Section_1_Image.data.attributes.height}
+              src={buildCmsUrl(content.Section_1_Image.data?.attributes.url)}
+              alt={content.Section_1_Image.data?.attributes.alternativeText ?? ''}
+              width={570}
+              height={560}
             />
           </div>
         </div>

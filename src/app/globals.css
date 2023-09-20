@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Roboto-Medium";
-  src: local("Roboto-Medium"), url('../static/fonts/Roboto-Medium.ttf') format('opentype');
+  font-family: 'Roboto-Medium';
+  src: local('Roboto-Medium'), url('../static/fonts/Roboto-Medium.ttf') format('opentype');
+}
+
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'), url('../static/fonts/Roboto-Regular.ttf') format('opentype');
 }
 
 :root {
@@ -18,16 +24,20 @@ html body {
   font-family: lato;
 
   /* text-rendering: optimizeLegibility; */
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  -webkit-text-size-adjust:100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 
   -webkit-tap-highlight-color: transparent;
- }
+}
 
 a {
   color: #009bd2;
   text-decoration: none;
+}
+
+.list-p > p {
+  @apply my-4
 }
 
 .dark-logo {
@@ -35,11 +45,77 @@ a {
 }
 
 .bull-content::after {
-  content: "•" !important;
+  content: '•' !important;
 }
 
 .ecommerceSlideActive::after {
   width: 5rem !important;
+}
+
+p > strong {
+  font-weight: 800;
+}
+.parse-span > span {
+  font-weight: 800;
+  color: #009bd2;
+}
+
+.testimonialSwiper .swiper {
+  width: 40rem;
+  height: 25rem;
+}
+
+.testimonialSwiper .swiper-slide-active,
+.testimonialSwiper .swiper-slide-next,
+.testimonialSwiper .swiper-slide-prev {
+  margin-left: 2rem;
+}
+.testimonialSwiper .swiper-slide-duplicate-next div::after,
+.testimonialSwiper .swiper-slide-duplicate-prev div::after,
+.testimonialSwiper .swiper-slide-next div::after,
+.testimonialSwiper .swiper-slide-prev div::after {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0rem;
+  left: 0rem;
+  content: '';
+  background-color: white;
+  opacity: 0.4;
+  transition: opacity 200ms;
+}
+.testimonialSwiper .swiper-slide-duplicate-next div:hover::after,
+.testimonialSwiper .swiper-slide-duplicate-prev div:hover::after,
+.testimonialSwiper .swiper-slide-next div:hover::after,
+.testimonialSwiper .swiper-slide-prev div:hover::after {
+  opacity: 0;
+}
+
+.testimonialSwiper .swiper-pagination-bullet {
+  width: 1rem;
+  height: 1rem;
+}
+.testimonialSwiper .swiper-pagination-bullet-active {
+  width: 1rem;
+  height: 1rem;
+}
+
+@media (max-width: 425px) {
+  .testimonialSwiper .swiper {
+    width: 100%;
+    height: 35rem;
+  }
+  .testimonialSwiper .swiper-slide-active,
+  .testimonialSwiper .swiper-slide-next,
+  .testimonialSwiper .swiper-slide-prev {
+    margin-left: 0rem;
+  }
+  .testimonialSwiper .swiper-slide-next div::after,
+  .testimonialSwiper .swiper-slide-prev div::after {
+    width: 100%;
+    height: 26.625rem;
+  }
 }
 
 @layer components {
@@ -51,7 +127,6 @@ a {
 
     /* Fix bug in Safari https://bugs.webkit.org/show_bug.cgi?id=68196 */
     -webkit-mask-image: -webkit-radial-gradient(white, black);
-
   }
 
   span.ripple {

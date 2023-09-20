@@ -15,10 +15,14 @@ module.exports = {
       btn: ['lato'],
     },
     screens: {
-      md: '425px',
+      sm: '425px',
+      md: '768px',
       lg: '960px',
     },
     extend: {
+      boxShadow: {
+        'testimonial-item': '0 2px 20px 0 rgba(0, 21, 73, 0.1)',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

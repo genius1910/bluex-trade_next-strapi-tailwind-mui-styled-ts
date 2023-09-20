@@ -104,6 +104,8 @@ export default function BlogFilteredList({
               locale={locale}
               previousUrl={previousPagePath()}
               nextUrl={nextPagePath()}
+              pageIndex={page}
+              totalPage={totalPage}
             />
           </>
         ) : (

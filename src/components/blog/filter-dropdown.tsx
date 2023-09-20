@@ -29,6 +29,7 @@ export default function FilterDropDown({ placeholder, current, options }: { plac
         <>
           <div key="d1">
             <Menu.Button
+              id=''
               className='flex items-center w-full justify-between shadow-[0_2px_5px_0_#8497b9] text-primary px-2.5 py-2 border-l-[5px] border-l-primary'
             >
               { !currentOption ? <span className='text-gray-400'>{placeholder}</span> : currentOption.label }

@@ -1,0 +1,374 @@
+{
+    "en": {
+        "createdAt": "2022-12-15T08:25:28.851Z",
+        "updatedAt": "2023-01-31T02:29:28.313Z",
+        "publishedAt": "2022-12-15T08:25:30.474Z",
+        "Section_2_Title": "OUR API PARTNERS",
+        "Section_3_Title": "CONNECT YOUR TMS AND RMS SYSTEM TO GAIN INSTANT OCEAN CARRIER DATA",
+        "Section_4_Title": "BLUEX API SUBSCRIPTION AND SERVICE DATA",
+        "Section_4_Table_Row_Header_1": "Spot Rates API",
+        "Section_4_Table_Row_Header_2": "Contract Rates API",
+        "Section_4_Table_Row_Header_3": "Booking & Shipping Instructions API",
+        "Section_5_Title": "GET STARTED ON THE BLUEX DEVELOPER APIS AND ACCESS YOUR CARRIER'S DATA",
+        "Section_5_First_Name_Input": "First Name＊",
+        "Section_5_Last_Name_Input": "Last Name＊",
+        "Section_5_Email_Input": "Email＊",
+        "Section_5_Company_Input": "Company Name＊",
+        "Section_5_Mobile_Input": "USA (+1) Phone number ＊",
+        "Section_5_Country_Input": "Country＊",
+        "Section_5_Confirm_Text": "I have read and agree to the BlueX Application Developer and API Agreement, Terms of Use and Privacy Policy",
+        "Section_5_Confirm_Link_Text": "the BlueX Application Developer and API Agreement, Terms of Use and Privacy Policy",
+        "Section_5_Confirm_Link_Url": "https://www.bluextrade.com/application-developer-api-agreement/",
+        "Section_5_Submit_Btn": "SUBMIT",
+        "SEO": {
+            "id": 598,
+            "title": "The BlueX API for Real-time Ocean Carrier Freight Data",
+            "description": "Discover more about BlueX APIs that offer real-time ocean carrier data to shippers, freight forwarders, and transportation management systems."
+        },
+        "Section_1_Paragraph": {
+            "id": 564,
+            "title": "Connecting to Carrier Data through a Single API",
+            "content": "Connecting shippers, freight forwarders, and transportation and rate management systems to ocean carrier data."
+        },
+        "Section_1_Btn": {
+            "id": 68,
+            "text": "View API Documents",
+            "link": "https://developer.bluextrade.com/docs/index.html"
+        },
+        "Section_1_Image": {
+            "data": {
+                "id": 354,
+                "attributes": {
+                    "name": "dp-banner.png",
+                    "alternativeText": null,
+                    "caption": null,
+                    "width": 740,
+                    "height": 453,
+                    "formats": {
+                        "thumbnail": {
+                            "ext": ".png",
+                            "hash": "dp_banner_a083826237",
+                            "mime": "image/png",
+                            "size": 8.74,
+                            "url": "/uploads/thumbnail_dp_banner_a083826237.png"
+                        },
+                        "large": {
+                            "ext": ".png",
+                            "hash": "dp_banner_a083826237",
+                            "mime": "image/png",
+                            "size": 94.85,
+                            "url": "/uploads/dp_banner_a083826237.png"
+                        }
+                    },
+                    "hash": "dp_banner_a083826237",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "size": 94.85,
+                    "url": "/uploads/dp_banner_a083826237.png",
+                    "previewUrl": null,
+                    "provider": "local",
+                    "provider_metadata": null,
+                    "createdAt": "2023-01-31T02:25:46.961Z",
+                    "updatedAt": "2023-01-31T02:25:46.961Z"
+                }
+            }
+        },
+        "Section_1_Bg": {
+            "data": {
+                "id": 355,
+                "attributes": {
+                    "name": "dp-bg-1.png",
+                    "alternativeText": null,
+                    "caption": null,
+                    "width": 1673,
+                    "height": 559,
+                    "formats": {
+                        "thumbnail": {
+                            "ext": ".png",
+                            "hash": "dp_bg_1_8df5df3a4f",
+                            "mime": "image/png",
+                            "size": 74.61,
+                            "url": "/uploads/thumbnail_dp_bg_1_8df5df3a4f.png"
+                        },
+                        "large": {
+                            "ext": ".png",
+                            "hash": "dp_bg_1_8df5df3a4f",
+                            "mime": "image/png",
+                            "size": 880.4,
+                            "url": "/uploads/dp_bg_1_8df5df3a4f.png"
+                        }
+                    },
+                    "hash": "dp_bg_1_8df5df3a4f",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "size": 880.4,
+                    "url": "/uploads/dp_bg_1_8df5df3a4f.png",
+                    "previewUrl": null,
+                    "provider": "local",
+                    "provider_metadata": null,
+                    "createdAt": "2023-01-31T02:26:01.329Z",
+                    "updatedAt": "2023-01-31T02:26:01.329Z"
+                }
+            }
+        },
+        "Section_2_Logo_List": {
+            "data": [
+                {
+                    "id": 200,
+                    "attributes": {
+                        "name": "logo-magaya-catapult.webp",
+                        "alternativeText": null,
+                        "caption": null,
+                        "width": 135,
+                        "height": 36,
+                        "formats": null,
+                        "hash": "logo_magaya_catapult_a695661b0c",
+                        "ext": ".webp",
+                        "mime": "image/webp",
+                        "size": 3.63,
+                        "url": "/uploads/logo_magaya_catapult_a695661b0c.webp",
+                        "previewUrl": null,
+                        "provider": "local",
+                        "provider_metadata": null,
+                        "createdAt": "2022-12-15T09:07:39.175Z",
+                        "updatedAt": "2022-12-15T09:07:39.175Z"
+                    }
+                },
+                {
+                    "id": 201,
+                    "attributes": {
+                        "name": "logo-cargofive.webp",
+                        "alternativeText": null,
+                        "caption": null,
+                        "width": 168,
+                        "height": 36,
+                        "formats": null,
+                        "hash": "logo_cargofive_006367e28e",
+                        "ext": ".webp",
+                        "mime": "image/webp",
+                        "size": 4.03,
+                        "url": "/uploads/logo_cargofive_006367e28e.webp",
+                        "previewUrl": null,
+                        "provider": "local",
+                        "provider_metadata": null,
+                        "createdAt": "2022-12-15T09:08:02.073Z",
+                        "updatedAt": "2022-12-15T09:08:02.073Z"
+                    }
+                },
+                {
+                    "id": 202,
+                    "attributes": {
+                        "name": "webcargo-horizontal-colored-with-tagline-1-1.webp",
+                        "alternativeText": null,
+                        "caption": null,
+                        "width": 627,
+                        "height": 108,
+                        "formats": {
+                            "small": {},
+                            "thumbnail": {}
+                        },
+                        "hash": "webcargo_horizontal_colored_with_tagline_1_1_40b8ffed2e",
+                        "ext": ".webp",
+                        "mime": "image/webp",
+                        "size": 10.81,
+                        "url": "/uploads/webcargo_horizontal_colored_with_tagline_1_1_40b8ffed2e.webp",
+                        "previewUrl": null,
+                        "provider": "local",
+                        "provider_metadata": null,
+                        "createdAt": "2022-12-15T09:08:37.742Z",
+                        "updatedAt": "2022-12-15T09:08:37.742Z"
+                    }
+                },
+                {
+                    "id": 203,
+                    "attributes": {
+                        "name": "bitmap.webp",
+                        "alternativeText": null,
+                        "caption": null,
+                        "width": 171,
+                        "height": 36,
+                        "formats": null,
+                        "hash": "bitmap_a6569c5f81",
+                        "ext": ".webp",
+                        "mime": "image/webp",
+                        "size": 3.4,
+                        "url": "/uploads/bitmap_a6569c5f81.webp",
+                        "previewUrl": null,
+                        "provider": "local",
+                        "provider_metadata": null,
+                        "createdAt": "2022-12-15T09:08:45.651Z",
+                        "updatedAt": "2022-12-15T09:08:45.651Z"
+                    }
+                },
+                {
+                    "id": 204,
+                    "attributes": {
+                        "name": "logo-pls.webp",
+                        "alternativeText": null,
+                        "caption": null,
+                        "width": 309,
+                        "height": 210,
+                        "formats": {
+                            "thumbnail": {}
+                        },
+                        "hash": "logo_pls_2b93cfcc01",
+                        "ext": ".webp",
+                        "mime": "image/webp",
+                        "size": 11.15,
+                        "url": "/uploads/logo_pls_2b93cfcc01.webp",
+                        "previewUrl": null,
+                        "provider": "local",
+                        "provider_metadata": null,
+                        "createdAt": "2022-12-15T09:08:54.353Z",
+                        "updatedAt": "2022-12-15T09:08:54.353Z"
+                    }
+                }
+            ]
+        },
+        "Section_3_Media_List": [
+            {
+                "id": 100,
+                "description": {
+                    "id": 565,
+                    "title": "BOOK FREIGHT DIGITALLY VIA APIs",
+                    "content": "Gain access to transparent rates, schedules, and inventory data directly from carriers"
+                },
+                "image": {
+                    "data": {
+                        "id": 123,
+                        "attributes": {
+                            "name": "image_1.jpg",
+                            "alternativeText": null,
+                            "caption": null,
+                            "width": 800,
+                            "height": 600,
+                            "formats": null,
+                            "hash": "image_hash_1",
+                            "ext": ".jpg",
+                            "mime": "image/jpeg",
+                            "size": 12345,
+                            "url": "/uploads/image_1.jpg",
+                            "previewUrl": null,
+                            "provider": "local",
+                            "provider_metadata": null,
+                            "createdAt": "2023-01-15T08:00:00.000Z",
+                            "updatedAt": "2023-01-15T08:00:00.000Z"
+                        }
+                    }
+                }
+            },
+            {
+                "id": 101,
+                "description": {
+                    "id": 566,
+                    "title": "ACCESS REAL-TIME CARRIER DATA",
+                    "content": "Gain access to transparent rates, schedules and inventory data directly from carriers"
+                },
+                "image": {
+                    "data": {
+                        "id": 124,
+                        "attributes": {
+                            "name": "image_2.jpg",
+                            "alternativeText": null,
+                            "caption": null,
+                            "width": 800,
+                            "height": 600,
+                            "formats": null,
+                            "hash": "image_hash_2",
+                            "ext": ".jpg",
+                            "mime": "image/jpeg",
+                            "size": 12345,
+                            "url": "/uploads/image_2.jpg",
+                            "previewUrl": null,
+                            "provider": "local",
+                            "provider_metadata": null,
+                            "createdAt": "2023-01-16T08:00:00.000Z",
+                            "updatedAt": "2023-01-16T08:00:00.000Z"
+                        }
+                    }
+                }
+            },
+            {
+                "id": 102,
+                "description": {
+                    "id": 567,
+                    "title": "ACCESS MULTIPLE CARRIER DATA THROUGH ONE API",
+                    "content": "Gain access to multiple carrier rate data through a single integration"
+                },
+                "image": {
+                    "data": {
+                        "id": 125,
+                        "attributes": {
+                            "name": "image_3.jpg",
+                            "alternativeText": null,
+                            "caption": null,
+                            "width": 800,
+                            "height": 600,
+                            "formats": null,
+                            "hash": "image_hash_3",
+                            "ext": ".jpg",
+                            "mime": "image/jpeg",
+                            "size": 12345,
+                            "url": "/uploads/image_3.jpg",
+                            "previewUrl": null,
+                            "provider": "local",
+                            "provider_metadata": null,
+                            "createdAt": "2023-01-17T08:00:00.000Z",
+                            "updatedAt": "2023-01-17T08:00:00.000Z"
+                        }
+                    }
+                }
+            }
+        ],
+        "Section_4_Table_Row_Data_1": [
+            {
+                "id": 1,
+                "category": "Rates Data",
+                "function": []
+            }
+        ],
+        "Section_4_Table_Row_Data_2": [
+            {
+                "id": 2,
+                "category": "Contract Rates Data"
+            },
+            {
+                "id": 3,
+                "category": "SQ/Short Term Contract Rates Data"
+            }
+        ],
+        "Section_4_Table_Row_Data_3": [
+            {
+                "id": 4,
+                "category": "Spot Booking & BI Data"
+            },
+            {
+                "id": 5,
+                "category": "Contract Booking & BI Data"
+            }
+        ],
+        "Section_2_Main_Logo": {
+            "data": {
+                "id": 205,
+                "attributes": {
+                    "name": "group-13.svg",
+                    "alternativeText": null,
+                    "caption": null,
+                    "width": 226,
+                    "height": 40,
+                    "formats": null,
+                    "hash": "group_13_3d51536a8f",
+                    "ext": ".svg",
+                    "mime": "image/svg+xml",
+                    "size": 8.94,
+                    "url": "/uploads/group_13_3d51536a8f.svg",
+                    "previewUrl": null,
+                    "provider": "local",
+                    "provider_metadata": null,
+                    "createdAt": "2022-12-16T10:23:23.297Z",
+                    "updatedAt": "2022-12-16T10:23:23.297Z"
+                }
+            }
+        }
+    }
+}

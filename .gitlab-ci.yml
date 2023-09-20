@@ -1,0 +1,38 @@
+default:
+  retry: 1
+  interruptible: true
+
+variables:
+  GIT_DEPTH: 5
+  GITHUB_TOKEN: $GITHUB_TOKEN
+  DOCKER_DRIVER: overlay2
+  REPOSITORY_NAME: bluex-web-next
+  MASTER_REPO_NAMESPACE: 'bluex-labs/web'
+
+stages:
+  - test
+  - build
+
+try_build:
+  stage: test
+  image:
+    name: node:18-slim
+    entrypoint: [""]
+  script:
+    - npm ci
+    - NEXT_PUBLIC_STRAPI_URL=$DEV_STRAPI_URL STRAPI_APIKEY=$DEV_STRAPI_APIKEY NEXT_PUBLIC_MELIAPI_URL=$DEV_MELIAPI_URL NEXT_PUBLIC_MELIAPI_APIKEY=$DEV_MELIAPI_APIKEY npm run build
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+
+build_deployable:
+  stage: build
+  image:
+    name:  amazon/aws-cli
+    entrypoint: [""]
+  script:
+    - yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y
+    - yum install nodejs -y --setopt=nodesource-nodejs.module_hotfixes=1
+    - npm ci
+    - AWS_ACCESS_KEY_ID=$DEV_AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$DEV_AWS_SECRET_ACCESS_KEY NEXT_PUBLIC_STRAPI_URL=$DEV_STRAPI_URL STRAPI_APIKEY=$DEV_STRAPI_APIKEY NEXT_PUBLIC_MELIAPI_URL=$DEV_MELIAPI_URL NEXT_PUBLIC_MELIAPI_APIKEY=$DEV_MELIAPI_APIKEY npm run deploy
+  rules:
+    - if: '$CI_PROJECT_NAMESPACE == $MASTER_REPO_NAMESPACE && $CI_COMMIT_BRANCH =~ /dev/'

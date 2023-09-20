@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FormEvent } from 'react';
 import { Modal } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 import PrimaryLogo from '@/images/logo/logo-bluexpay.inline.svg';
@@ -22,7 +22,7 @@ const FooterFormSection = () => {
     setFirstCheck(false);
   }, []);
 
-  const onHandleSubmit = async (event: any) => {
+  const onHandleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     setFirstCheck(true);
     if (!firstName || !lastName || !email || !company) {

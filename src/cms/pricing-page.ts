@@ -27,48 +27,48 @@ type PageContent = {
 }
 
 export interface LocalizedContent {
-  Section_3_Title:                string;
-  Modal_1_Title:                  string;
-  Modal_1_Comment:                string;
-  Modal_2_Title:                  string;
-  Modal_Trigger_Keyword:          string;
-  createdAt:                      string;
-  updatedAt:                      string;
-  publishedAt:                    string;
-  locale:                         string;
-  Section_1_Paragraph:            SectionParagraph;
-  Modal_1_Pricing_List:           PricingList[];
-  Modal_2_Local_Fees_Group_List:  LocalFeesGroupList[];
-  SEO:                            SEO;
+  Section_3_Title: string;
+  Modal_1_Title: string;
+  Modal_1_Comment: string;
+  Modal_2_Title: string;
+  Modal_Trigger_Keyword: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  locale: string;
+  Section_1_Paragraph: SectionParagraph;
+  Modal_1_Pricing_List: PricingList[];
+  Modal_2_Local_Fees_Group_List: LocalFeesGroupList[];
+  SEO: SEO;
   Modal_2_Local_Fees_Header_List: LocalFeesHeaderList[];
-  Section_3_Button:               SectionButton;
+  Section_3_Button: SectionButton;
   // localizations:                  Localizations;
 }
 
 export interface PricingList {
-  id:    number;
-  name:  string;
+  id: number;
+  name: string;
   price: string;
 }
 
 export interface LocalFeesGroupList {
-  id:   number;
+  id: number;
   area: null | string;
 }
 
 export interface LocalFeesHeaderList {
-  id:      number;
+  id: number;
   content: string;
 }
 
 export interface SectionParagraph {
-  id:      number;
-  title:   string;
+  id: number;
+  title: string;
   content: string;
 }
 
 export interface SectionButton {
-  id:   number;
+  id: number;
   text: string;
   link: string;
 }
@@ -85,6 +85,5 @@ export const fetchContent = async () => {
     query,
     limit: 500
   })
-
   return res as PageContent
 }

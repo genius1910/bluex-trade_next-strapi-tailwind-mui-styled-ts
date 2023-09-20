@@ -1,4 +1,4 @@
-import React from 'react';
+import { buildCmsUrl } from '@/cms/base';
 import { LocalizedContent } from '@/cms/ecommerce';
 import Image from 'next/image';
 
@@ -15,17 +15,13 @@ const FeatureSection = ({ content }: { content: LocalizedContent }) => {
               className="flex flex-1 flex-col items-center font-[lato] text-base font-normal leading-normal tracking-normal"
               key={`attribute-${index}`}
             >
-              <div className='h-20 mb-[1.125rem]'>
+              <div className="mb-[1.125rem] h-20">
                 {
-                  // eslint-disable-next-line jsx-a11y/img-redundant-alt
                   <Image
-                    src={
-                      process.env.NEXT_PUBLIC_STRAPI_URL +
-                      image.data.attributes.url.substring(1)
-                    }
-                    alt={''}
-                    width={image.data.attributes.width}
-                    height={image.data.attributes.height}
+                    src={buildCmsUrl(image.data?.attributes.url)}
+                    alt={image.data?.attributes.alternativeText ?? 'feature'}
+                    width={image.data?.attributes.width}
+                    height={image.data?.attributes.height}
                   />
                 }
               </div>

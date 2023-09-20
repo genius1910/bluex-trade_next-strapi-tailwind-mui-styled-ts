@@ -2,15 +2,8 @@
 const nextConfig = {
   output: "export",
   images: {
-    unoptimized: true
-  //   remotePatterns: [
-  //     {
-  //       protocol: 'https',
-  //       hostname: 'dev-strapi4.bluex.trade',
-  //       port: '1337',
-  //       pathname: '/**',
-  //     },
-  //   ],
+    loader: 'custom',
+    loaderFile: './src/lib/image_export/image_loader.ts',
   },
   trailingSlash: true,
   webpack(config) {

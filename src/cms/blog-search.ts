@@ -202,3 +202,20 @@ export async function fetchAll() {
 
   return await fetchByPage(1)
 }
+
+export async function fetchLatest(count: number) {
+  if (useMockData) {
+    return BlogFilteredList.hits as BlogEntry[]
+  }
+
+  const res = await searchBlogs({
+    type: null,
+    category: null,
+    search: null,
+    page: 1,
+    pageSize: count,
+    sort: ['Date:desc'],
+  })
+
+  return res.hits
+}

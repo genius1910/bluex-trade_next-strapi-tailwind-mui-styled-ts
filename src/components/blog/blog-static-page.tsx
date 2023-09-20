@@ -39,6 +39,8 @@ export default async function BlogStaticPage({
           locale={locale}
           previousUrl={previousPagePath}
           nextUrl={nextPagePath}
+          pageIndex={page}
+          totalPage={meta.totalPages}
         />
       </div>
     </BlogList>

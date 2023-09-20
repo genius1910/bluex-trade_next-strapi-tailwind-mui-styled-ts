@@ -1,9 +1,9 @@
-import { buildCmsUrl } from "@/cms/base";
-import { LocalizedContent } from "@/cms/blog-page";
-import Divider from "../common/divider";
-import BlogFilter from "./blog-filter";
-import { AvailableLocaleType } from "@/cms/types";
-import { Suspense } from "react";
+import { LocalizedContent } from '@/cms/blog-page';
+import { AvailableLocaleType } from '@/cms/types';
+import { backgroundImageSetStyle } from '@/components/tools/background-imageset';
+import { Suspense } from 'react';
+import Divider from '../common/divider';
+import BlogFilter from './blog-filter';
 
 interface BlogListProps {
   localizedContent: LocalizedContent;
@@ -16,14 +16,14 @@ export default function BlogList({
   locale,
   children,
 }: BlogListProps) {
-  const bg = buildCmsUrl(localizedContent.Section_1_Bg.data.attributes.url);
-
   return (
     <div className="relative h-fit w-full">
       {/* title and description section */}
       <div
         className={`relative box-border bg-cover bg-center px-5 pb-20 pt-[8.25rem]`}
-        style={{ backgroundImage: `url(${bg})` }}
+        style={backgroundImageSetStyle(
+          localizedContent.Section_1_Bg.data?.attributes.url,
+        )}
       >
         <div className="mb-0 flex w-full flex-col items-center">
           <div className="mb-2.5 h-[54px] text-left font-title text-4xl font-bold leading-[3.375rem] text-white">

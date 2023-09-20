@@ -31,10 +31,10 @@ export default function BlogPreview({
       >
         <Image
           className="w-full"
-          width={blog.Image.formats.small?.width}
-          height={blog.Image.formats.small?.height}
+          width="380"
+          height="260"
           alt="blog image"
-          src={buildCmsUrl(blog.Image.formats.small?.url || "")}
+          src={buildCmsUrl(blog.Image.url || "")}
         />
       </Link>
       <div className="flex flex-auto flex-col justify-start">

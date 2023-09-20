@@ -15,7 +15,9 @@ export const meliConfig = () => ({
 
 export const useMockData = process.env.MOCK === "true";
 
-export function buildCmsUrl(path: string): string {
+export function buildCmsUrl(path: string | undefined | null): string {
+  if (!path) return ''
+
   return combineURLs(strapiKey(), path);
 }
 
